@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather");
+
 .App {
   text-align: center;
 }
@@ -14,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #8682d9;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +28,22 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.App-header p {
+  font-family: "Merriweather", serif;
+}
+
+.App-header a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 3px dashed white;
+}
+
+.App-header a:hover {
+  color: #defcfe;
+  text-decoration: none;
+  border-bottom: 3px dashed #defcfe;
 }
 
 @keyframes App-logo-spin {

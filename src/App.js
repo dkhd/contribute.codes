@@ -1,22 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <code>Contribution Through Code (CTC)</code>
+        <p>is helping you to make an open source contribution through code</p>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <a href="https://hadna.space" target="_blank" rel="noreferrer">
+            About
+          </a>
+          &nbsp; &middot; &nbsp;
+          <a href="https://github.com/dkhd" target="_blank" rel="noreferrer">
+            Github
+          </a>
+          &nbsp; &middot; &nbsp;
+          <a href="mailto:hi@hadna.space" target="_blank" rel="noreferrer">
+            Email
+          </a>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
