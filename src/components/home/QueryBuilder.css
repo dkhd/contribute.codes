@@ -1,0 +1,15 @@
+.SelectSearch input {
+  @apply bg-gray-100 px-2 py-2 border border-solid border-gray-800 outline-none w-full relative overflow-hidden;
+}
+
+.SelectSearch__select {
+  @apply bg-gray-100 border-b border-l border-r border-solid border-gray-800;
+}
+
+.SelectSearch__option {
+  @apply px-2 py-2 w-full text-left;
+}
+
+.SelectSearch__option:hover {
+  @apply bg-gray-200;
+}

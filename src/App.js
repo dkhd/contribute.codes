@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 import Navbar from './components/global/Navbar';
 
-import Home from "./pages"
+import Home from "./pages/Home"
 import About from './pages/About';
 
 const App = (() => {
