@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SelectSearch, { fuzzySearch } from "react-select-search";
 
 import "./QueryBuilder.css";
 
 const programmingLanguage = [
-  { name: "Javascript", value: "js" },
-  { name: "Typescript", value: "js" },
-  { name: "C++", value: "c++" },
+  { name: "Javascript", value: "javascript" },
+  { name: "Typescript", value: "typescript" },
+  { name: "C++", value: "C++" },
+  { name: "Python", value: "python" },
 ];
 
 const stars = [
@@ -22,11 +23,24 @@ const issueLabel = [
   { name: "No, I don't care with the label", value: "no" },
 ];
 
-const handleSearchButton = () => {
-  window.open("https://github.com/search", "_blank");
-};
-
 function QueryBuilder(props) {
+  const [lang, setLang] = useState("");
+  const [starsNo, setStarsNo] = useState("");
+  const [forksNo, setForksNo] = useState("");
+  const [useGFI, setUseGFI] = useState(false);
+  const [searchSyntax, setSearchSyntax] = useState("");
+
+  useEffect(() => {
+    // saving for later
+  }, [lang, starsNo, forksNo, useGFI]);
+
+  const handleSearchButton = () => {
+    window.open(
+      "https://github.com/search?q=" + encodeURI(searchSyntax),
+      "_blank"
+    );
+  };
+
   return (
     <div className="flex flex-col gap-10 w-10/12 md:w-6/12 pb-20">
       <div className="flex flex-col mt-10">
@@ -43,7 +57,7 @@ function QueryBuilder(props) {
         </span>
         <SelectSearch
           options={programmingLanguage}
-          value="sv"
+          onChange={(e) => setLang(e)}
           name="language"
           placeholder="Choose programming language"
           search
@@ -66,11 +80,9 @@ function QueryBuilder(props) {
         </span>
         <SelectSearch
           options={stars}
-          value="sv"
+          onChange={(e) => setStarsNo(e)}
           name="language"
           placeholder="How many stars?"
-          search
-          filterOptions={fuzzySearch}
           className="SelectSearch mt-5 w-full"
         />
       </div>
@@ -89,11 +101,9 @@ function QueryBuilder(props) {
         </span>
         <SelectSearch
           options={stars}
-          value="sv"
+          onChange={(e) => setForksNo(e)}
           name="language"
           placeholder="How many forks?"
-          search
-          filterOptions={fuzzySearch}
           className="SelectSearch mt-5 w-full"
         />
       </div>
@@ -115,11 +125,9 @@ function QueryBuilder(props) {
         </span>
         <SelectSearch
           options={issueLabel}
-          value="sv"
+          onChange={(e) => setUseGFI(e)}
           name="language"
           placeholder="With good-first-issue label?"
-          search
-          filterOptions={fuzzySearch}
           className="SelectSearch mt-5 w-full"
         />
       </div>
@@ -140,6 +148,8 @@ function QueryBuilder(props) {
         <input
           placeholder="Github advance search query"
           className="bg-gray-100 px-2 py-2 border border-solid border-gray-800 outline-none w-full relative overflow-hidden mt-5"
+          value={searchSyntax}
+          onChange={(e) => setSearchSyntax(e.target.value)}
         />
       </div>
       <button
