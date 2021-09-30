@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function About(props) {
   return (
     <div className="container mx-auto mt-10 pb-20">
-      <h1 className="text-center text-3xl font-bold">About</h1>
+      <h1 className="text-center text-3xl font-bold">About CYC</h1>
       <div className="w-10/12 mt-10 md:w-6/12 mx-auto text-justify">
         <p>
           Hi 👋 I'm{" "}
@@ -23,8 +23,8 @@ function About(props) {
           <Link to="/" className="border-b-2 border-dashed border-gray-600">
             Contribute Your Codes (CYC)
           </Link>{" "}
-          is a Github advanced query builder. It is similar to what Github have
-          in the{" "}
+          is a Github advanced search syntax builder. It is similar to what
+          Github have in the{" "}
           <a
             href="https://github.com/search/advanced"
             target="_blank"
@@ -109,17 +109,16 @@ function About(props) {
         </ul>
         <p className="mt-10 text-xl font-semibold">Why I build this?</p>
         <p className="mt-5">
-          One major problem for abeginner contributors is they need something
+          One major problem for beginner contributors is they need something
           smaller to begin with, so they can get a grasp on how to contribute to
           open source. Those awesome websites I mentioned above will mostly
           suggest the users to contribute to big &amp; massive projects that
           might be scary or intimidating to a beginner contributor.
         </p>
         <p className="mt-5">
-          I don't have any intention to compete with the others, but rather CYC
-          will fill the gaps by providing you with more advanced search, so you
-          can give your first contribution to an active open source project but
-          less popular. These projects are usually have less stars and less
+          CYC will fill the gaps by providing you with more advanced search, so
+          you can give your first contribution to an active open source project
+          but less popular. These projects are usually have less stars and less
           forks compared to the big &amp; massive projects with thousands of
           stars and forks.
         </p>
