@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SelectSearch, { fuzzySearch } from "react-select-search";
+import YAML from "yaml";
 
 import "./QueryBuilder.css";
 
@@ -24,15 +26,50 @@ const issueLabel = [
 ];
 
 function QueryBuilder(props) {
+  const [langList, setLangList] = useState([]);
   const [lang, setLang] = useState("");
   const [starsNo, setStarsNo] = useState("");
   const [forksNo, setForksNo] = useState("");
   const [useGFI, setUseGFI] = useState(false);
   const [searchSyntax, setSearchSyntax] = useState("");
 
+  const getLanguageData = async () => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(
+          "https://cdn.jsdelivr.net/gh/github/linguist@master/lib/linguist/languages.yml"
+        )
+        .then((response) => response)
+        .then(({ data }) => {
+          resolve(
+            Object.keys(data).map((id, item) => ({
+              value: item,
+              name: item,
+            }))
+          );
+        })
+        .catch(reject);
+    });
+  };
+
   useEffect(() => {
-    // saving for later
-  }, [lang, starsNo, forksNo, useGFI]);
+    axios
+      .get(
+        "https://cdn.jsdelivr.net/gh/github/linguist@master/lib/linguist/languages.yml"
+      )
+      .then((res) => {
+        const yamlData = YAML.parse(res.data);
+        let tempLang = [];
+        Object.keys(yamlData).map(function (key, index) {
+          tempLang.push({
+            name: key,
+            value: key,
+          });
+          // console.log(tempLang);
+          setLangList(tempLang);
+        });
+      });
+  }, []);
 
   const handleSearchButton = () => {
     window.open(
